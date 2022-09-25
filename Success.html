@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <title>Ticket Booked Successfully</title>
+
+    <style>
+        body {
+            font-family: 'Baloo 2', cursive;
+            background-color: rgb(252, 252, 252);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            width: 100%;
+            height: 70px;
+            background-color: rgb(0, 11, 22);
+        }
+
+        .main ul {
+            float: right;
+            color: orange;
+            list-style-type: none;
+            margin-top: 20px;
+            margin-right: 50px;
+        }
+
+        .main ul li {
+            display: inline-block;
+        }
+
+        .main ul li a {
+            text-decoration: none;
+            color: orange;
+            padding: 5px 20px;
+            border: 3px solid transparent;
+            transition: 0.6s ease;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .main ul li a:hover {
+            border-bottom: 3px solid orange;
+            color: orange;
+            text-decoration: none;
+        }
+
+        .logo p {
+            float: left;
+            margin-top: 7px;
+            margin-left: 30px;
+            color: orange;
+            font-size: 35px;
+            font-weight: bold;
+            text-shadow: 1px 1px 5px orange;
+            cursor: pointer;
+        }
+
+        .cont {
+            width: 100%;
+            height: 560px;
+            box-sizing: border-box;
+            padding-top: 50px;
+            background-color: ivory;
+        }
+
+        .suc {
+            width: 60%;
+            height: 450px;
+            display: flex;
+            box-sizing: border-box;
+            background-color: black;
+            border-radius: 15px;
+            margin-left: 270px;
+        }
+
+        .suc:hover .st-to {
+            color: orange;
+        }
+
+        .suc:hover .st-from {
+            color: orange;
+        }
+
+        .suc-1 {
+            width: 60%;
+            height: 400px;
+            color: white;
+        }
+
+        .bookid {
+            width: 100%;
+            height: 150px;
+            padding-top: 20px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        #confirm {
+            font-size: 35px;
+            color: rgb(25, 187, 25);
+        }
+
+        #confirm:hover {
+            color: greenyellow;
+        }
+
+        .bookid p {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .book-info {
+            width: 100%;
+            height: 250px;
+        }
+
+
+        .suc-image {
+            width: 40%;
+            height: 400px;
+        }
+
+        .suc-image img {
+            width: 388px;
+            height: 420px;
+        }
+
+        .station {
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+        }
+
+        #st1,
+        #st3 {
+            width: 35%;
+            text-align: center;
+        }
+
+        #st2 {
+            margin-top: 35px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .st-to,
+        .st-from {
+            font-size: 30px;
+            font-weight: bold;
+            transition: .5s;
+        }
+
+        .busname,
+        .pas-name {
+            width: 100%;
+            height: 40px;
+            margin-top: 20px;
+        }
+
+        .busname p,
+        .pas-name p {
+            font-size: 22px;
+            font-weight: bold;
+            margin-left: 80px;
+        }
+
+        .busname p i,
+        .pas-name p i {
+            color: orange;
+            margin-right: 17px;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .cont button {
+            width: 180px;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 8px 5px;
+            background-color: black;
+            color: white;
+            margin-left: 600px;
+            margin-top: 20px;
+            transition: .5s;
+        }
+
+        .cont button:hover {
+            cursor: pointer;
+            background-color: orange;
+            color: rgb(8, 22, 33);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="main">
+        <div class="logo">
+            <p>QuickBus</p>
+        </div>
+        <ul>
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Buses</a></li>
+            <li><a href="#">Contact</a></li>
+
+        </ul>
+    </div>
+
+    <div class="cont">
+        <div class="suc">
+            <div class="suc-1">
+                <div class="bookid">
+                    <p id="confirm">Booking Confirmed </p>
+                    <p>Booking ID &nbsp;&nbsp;:&nbsp;&nbsp; QB17342019298563</p>
+                </div>
+
+                <div class="book-info">
+                    <div class="station">
+                        <div id="st1">
+                            <p class="st-from" id="from">Surat</p>
+                            <p class="time-from" id="time1">22 : 00 <br>
+                            <p id="tdate"> Thu, 15 Apr</p>
+                            </p>
+                        </div>
+
+                        <div id="st2">
+                            - - - <i class="fa fa-bus" aria-hidden="true"></i> - - -
+                        </div>
+
+                        <div id="st3">
+                            <p class="st-to" id="to">Diu</p>
+                            <p class="time-to" id="time3">2 : 00 <br>
+                            <p id="tdate1">Fri, 16 Apr</p>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="busname">
+                        <p><i class="fa fa-bus" aria-hidden="true"></i><span id="bname2">GSRTC</span></p>
+                    </div>
+
+                    <div class="pas-name">
+                        <p><i class="fa fa-user" aria-hidden="true"></i><span id="pname">Vikas Patel</span></p>
+                    </div>
+
+                    <div class="pas-name">
+                        <p><i class="fa fa-rupee" aria-hidden="true"></i><span id="ticket"> 350 /-</span></p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="suc-image">
+                <img src="https://www.skibanff.com/application/files/7715/4525/7687/SSV18_ProductImagesTemplate_MobileTickets_PhoneOnly.png"
+                    alt="">
+            </div>
+
+        </div>
+
+        <Button onclick="window.open('Ticket.html')">Download Ticket</Button>
+    </div>
+    <script>
+        var from = localStorage.getItem("from");
+        document.getElementById("from").innerHTML = from;
+
+        var to = localStorage.getItem("to");
+        document.getElementById("to").innerHTML = to;
+
+        var time1 = localStorage.getItem("time1");
+        document.getElementById("time1").innerHTML = time1;
+
+        var time3 = localStorage.getItem("time3");
+        document.getElementById("time3").innerHTML = time3;
+
+        var tdate = localStorage.getItem("tdate");
+        document.getElementById("tdate").innerHTML = tdate;
+        document.getElementById("tdate1").innerHTML = tdate;
+
+        var bname1 = localStorage.getItem("bname");
+        document.getElementById("bname2").innerHTML = bname1;
+
+        var fname = localStorage.getItem("fname");
+        fname = fname.charAt(0).toUpperCase() + fname.slice(1); //user enter small letter but this will changes to Capitalize first letter.
+        document.getElementById("pname").innerHTML = fname;
+
+        var ticket = localStorage.getItem("ticket");
+        var tick2 = ticket.substring(1); // removes rupee sign from ticket because it mentioned earlier.
+        document.getElementById("ticket").innerHTML = tick2 + " /-";
+
+    </script>
+</body>
+
+</html>

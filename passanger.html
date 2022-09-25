@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <title>Passanger Detail</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            box-sizing: border-box;
+            font-family: "Baloo 2", cursive;
+            margin: 0px;
+            padding: 0px;
+            background-color: white;
+        }
+
+        .main {
+            width: 100%;
+            height: 70px;
+            background-color: rgb(8, 22, 37);
+        }
+
+        .main ul {
+            float: right;
+            color: orange;
+            list-style-type: none;
+            margin-top: 20px;
+            margin-right: 50px;
+        }
+
+        .main ul li {
+            display: inline-block;
+        }
+
+        .main ul li a {
+            text-decoration: none;
+            color: orange;
+            padding: 5px 20px;
+            border: 3px solid transparent;
+            transition: 0.6s ease;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .main ul li a:hover {
+            border-bottom: 3px solid orange;
+            color: orange;
+            text-decoration: none;
+        }
+
+        .logo p {
+            float: left;
+            margin-top: 7px;
+            margin-left: 30px;
+            color: orange;
+            font-size: 35px;
+            font-weight: bold;
+            text-shadow: 1px 1px 5px orange;
+            cursor: pointer;
+        }
+
+        .fromTo {
+            width: 100%;
+            display: flex;
+            height: 70px;
+            margin-top: 5px;
+            font-size: 14px;
+            padding-top: 10px;
+            background-color: rgb(8, 22, 37);
+            color: gray;
+            box-sizing: border-box;
+        }
+
+        .from {
+            width: 33.33%;
+            padding-left: 20px;
+        }
+
+        .from span {
+            font-size: 25px;
+            color: orange;
+            line-height: 10px;
+        }
+
+        .mid {
+            width: 100%;
+            height: 550px;
+            background-color: white;
+            color: black;
+        }
+
+        .mid1 {
+            display: flex;
+            margin-left: 40px;
+        }
+
+        .info1 {
+            /* height: 430px; */
+            width: 600px;
+            font-size: 20px;
+            margin-left: 30px;
+            margin-top: 40px;
+            border: 1px solid rgb(8, 22, 37);
+            border-radius: 16px;
+        }
+
+        .info1 h2 {
+            height: 45px;
+            margin-top: 0px;
+            padding-top: 7px;
+            padding-left: 35px;
+            background-color: rgb(8, 22, 37);
+            color: orange;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        #cont {
+            margin-top: 10px;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+        }
+
+        .info1 label {
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        .info1 input {
+            border: 1px solid black;
+            background-color: white;
+            color: black;
+            border-bottom: 3px solid black;
+            padding-left: 10px;
+            padding-top: 2px;
+        }
+
+        .info1 select {
+            border: 2px solid black;
+            background-color: white;
+            color: black;
+        }
+
+        #fname {
+            border-radius: 9px;
+            margin-left: 10px;
+        }
+
+        #age {
+            border-radius: 9px;
+            margin-left: 50px;
+        }
+
+        #gender {
+            border-radius: 9px;
+            margin-left: 95px;
+            border-bottom: 3px solid black;
+        }
+
+        #email {
+            border-radius: 9px;
+            margin-left: 90px;
+        }
+
+        #mobile {
+
+            border-radius: 9px;
+            margin-left: 68px;
+            border-bottom: 3px solid black;
+        }
+
+        .info2 {
+
+            font-size: 150%;
+            margin-left: 40px;
+            margin-top: 40px;
+            padding-left: 0px;
+            border: 1px solid rgb(8, 22, 37);
+            border-radius: 24px;
+            color: black;
+        }
+
+        .busdetails {
+            display: flex;
+            border-bottom: 1px solid black;
+        }
+
+        .buslogo {
+            margin-top: 16px;
+            margin-left: 20px;
+            font-size: 40px;
+        }
+
+        .clocklogo {
+            margin-top: 16px;
+            margin-left: 20px;
+            font-size: 40px;
+            padding-top: 19px;
+        }
+
+        .busdetail {
+            margin-left: 20px;
+        }
+
+        .sleeper {
+            margin-top: -20px;
+        }
+
+        .dttime {
+            display: flex;
+            border-bottom: 1px solid black;
+        }
+
+        .datedetails {
+            display: flex;
+        }
+
+        .dt {
+            margin-bottom: -10px;
+        }
+
+        .duration {
+            margin-top: 20px;
+            margin-left: 50px;
+        }
+
+        .reachdetail {
+            margin-left: 50px;
+        }
+
+        .seatdetail {
+            margin-left: 20px;
+            margin-top: 10px;
+            padding: 10px 0 0 12px;
+        }
+
+        .seatdetail2 {
+            margin-left: 20px;
+            margin-top: 10px;
+            padding: 5px 0 5px 12px;
+        }
+
+        .inrdetails {
+            display: flex;
+            background-color: rgb(8, 22, 37);
+            color: orange;
+            border-bottom: 1px solid rgb(8, 22, 37);
+        }
+
+        #inr {
+            margin-left: 272px;
+        }
+
+        #ii {
+            font-size: 70%;
+        }
+
+        .fare {
+            margin-left: 280px;
+            font-size: 80%;
+        }
+
+        .info1 input:focus {
+            outline: none;
+        }
+
+        .totinrdetails {
+            font-size: 25px;
+            /* display: flex; */
+            background-color: rgb(8, 22, 37);
+            color: orange;
+            border-top: 1px solid black;
+            border-bottom: 4px solid rgb(8, 22, 37);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+
+        }
+
+        .faretotal {
+            margin-left: 250px;
+        }
+
+        .mid2 {
+            margin-left: 480px;
+            font-size: 25px;
+        }
+
+        .mid2 button {
+            background-color: rgb(8, 22, 37);
+            border-radius: 10px;
+            width: 400px;
+            padding: 5px 0px;
+            color: orange;
+            outline: none;
+            border: none;
+        }
+
+        .mid2 button:hover {
+            background-color: orange;
+            color: rgb(8, 22, 37);
+            transition: .5s;
+        }
+
+        #busname {
+            padding: 10px;
+            font-size: 25px;
+        }
+
+        #bustype {
+            padding: 0px 0px 8px 10px;
+            font-size: 18px;
+        }
+
+        #input1,
+        #input2 {
+            font-size: 25px;
+            padding-left: 10px;
+            line-height: 15px;
+        }
+
+        #dt1,
+        #dt2,
+        #t1,
+        #t3 {
+            padding: 10px 0px 0px 10px;
+        }
+
+        #t2 {
+            padding-top: 20px;
+        }
+
+        #inr {
+            padding: 20px 50px 0 0;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        function validate() {
+            var em = document.getElementById("email").value;
+            var num = document.getElementById("mobile1").value;
+            var fname = document.getElementById("fname").value;
+            var age = document.getElementById("age").value;
+
+            var a = em.indexOf("@");
+            var d = em.indexOf("_");
+            var b = em.lastIndexOf(".");
+            var e = em.substr(0, 1);
+
+            var f = num.charAt(0);
+
+
+            var pat = /^[A-Za-z\s]{1,30}$/;
+            var resultt = fname.match(pat);
+
+
+            var ag = /^\d{1,2}$/; // \d means string should only contain digit
+            var resulttt = age.match(ag);
+
+
+            var nn = num.substr(0, 1);
+            var patt = /^\d{10}$/; // \d means string should only contain digit
+            var result = num.match(patt);
+
+            // ---------------------------------passanger-----------------------------------
+
+
+            if (resultt == null) {
+                alert("Please Enter Alphabet In Name");
+            }
+
+            // -----------------------------------------age---------------------------------
+
+            else if (resulttt == null) {
+                alert("Please Enter Valid Age e.g. 35");
+            } else if (age == 0) {
+                alert("Enter Valid Age");
+            }
+
+            // -----------------------------------------mobile------------------------------
+
+
+            else if (num.length == 0) {
+                alert("Please Enter Your Mobile No.");
+                return false;
+            } else if (num.length != 10) {
+                alert("Mobile number length isn't correct");
+                return false;
+            } else if (nn >= 0 && nn <= 5) {
+                alert("Mobile No. Must start with 6,7,8,9 ");
+                return false;
+            } else if (result == null) {
+                alert("Mobile No. is always in DIGIT");
+                return false;
+            }
+
+            // ---------------------------------------email-------------------------------------------------------
+            else if (em.length == 0) {
+                alert("Enter Email Address");
+                return false;
+            } else if (a < 1 || b < a + 2 || b + 2 >= em.length) {
+                alert("Invalid Email ID");
+
+                return false;
+            } else if (d == 0) {
+                alert("Email should not start with _");
+
+                return false;
+            } else if (e >= 1 && e <= 9) {
+                alert("Email sould not start with number");
+
+                return false;
+            }
+            else {
+                var fname = document.getElementById("fname").value;
+                localStorage.setItem("fname", fname);
+
+                var age = document.getElementById("age").value;
+                localStorage.setItem("age", age);
+
+                var gender = document.getElementById("gender").value;
+                localStorage.setItem("gender", gender);
+
+                var email = document.getElementById("email").value;
+                localStorage.setItem("email", email);
+
+                var mobile1 = document.getElementById("mobile1").value;
+                localStorage.setItem("mobile1", mobile1);
+
+                window.open('payment.html',"_self");
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="logo">
+            <p>InsatntBus</p>
+        </div>
+        <ul>
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Buses</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="fromTo">
+        <div class="from">
+            <p>From </p>
+            <span id="input3">Surat</span>
+        </div>
+
+        <div class="from">
+            <p>To </p>
+            <span id="input4"></span>
+        </div>
+
+        <div class="from">
+            <p>Date </p>
+            <span id="date"></span>
+        </div>
+    </div>
+    <div class="mid">
+        <div class="mid1">
+            <div class="info1">
+                <h2>Traveller &nbsp; Details</h2>
+
+                <label>Passanger Name </label>
+                <input type="text" id="fname" />
+
+                <br /><label>Age (In Year) </label>
+                <input type="text" id="age" />
+
+                <br /><label>Gender </label>
+                <select id="gender">
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                </select>
+
+                <h2 id="cont">Contact &nbsp; Details</h2>
+
+                <label>Email ID </label>
+                <input type="email" id="email" />
+
+                <br />
+                <label>Mobile No. </label>
+                <select id="mobile">
+                    <option>+91</option>
+                </select>
+                <input type="text" style="border-radius: 9px" id="mobile1" size="14" />
+                <br />
+            </div>
+            <!-- .................... -->
+            <div class="info2">
+                <!-- 1 -->
+                <div class="busdetails">
+                    <div class="buslogo">
+                        <i class="fa fa-bus" aria-hidden="true"></i>
+                    </div>
+                    <div class="busdetail">
+                        <b>
+                            <p id="busname"></p>
+                        </b>
+
+                        <p class="sleeper" id="bustype"></p>
+                    </div>
+                </div>
+                <!-- 2 -->
+                <div class="dttime">
+                    <div class="datedetails">
+                        <div class="clocklogo">
+                            <i class="fa fa-clock-o" aria-hidden="true"></i>
+                        </div>
+                        <div class="busdetail">
+                            <p class="dt" id="dt1"></p>
+                            <b>
+                                <p id="t1"></p>
+                            </b>
+                            <b>
+                                <p id="input1"></p>
+                            </b>
+                        </div>
+                        <div class="duration">
+                            <p id="t2"></p>
+                        </div>
+                        <div class="reachdetail">
+                            <p class="dt" id="dt2"></p>
+                            <b>
+                                <p id="t3"></p>
+                            </b>
+                            <b>
+                                <p id="input2"></p>
+                            </b>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="inrdetails">
+                    <div class="buslogo">
+                        <i class="fas fa-money-bill-alt"></i>
+                    </div>
+                    <div class="seatdetail">
+                        <span><b>Fare Summury </b></span>
+                        <span id="inr">INR ( ₹ )</span>
+
+                    </div>
+                </div>
+
+                <div class="seatdetail">
+                    <p>
+                        <span>Base Fare Of Ticket
+                            <b><span id="tic" style="padding-left:300px;font-size: 22px;"></span></b>
+
+                    </p>
+                    <p>
+                        <span>Registration Charge</span>&nbsp;&nbsp;&nbsp;
+                        <span class="fare">
+                            <i class="fa fa-inr" aria-hidden="true"></i></span>&nbsp;0.00
+                    </p>
+
+                </div>
+
+                <div class="totinrdetails">
+                    <div class="seatdetail2">
+                        <span><b>Total Payable : </b></span>
+                        <b><span id="tic2" style="padding-left:315px;"></span></b>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var busname = localStorage.getItem("bname");
+            document.getElementById("busname").innerHTML = busname;
+
+            var bustype = localStorage.getItem("btype");
+            document.getElementById("bustype").innerHTML = bustype;
+
+            var dt1 = localStorage.getItem("tdate");
+            document.getElementById("dt1").innerHTML = dt1;
+            var dt2 = localStorage.getItem("tdate");
+            document.getElementById("dt2").innerHTML = dt2;
+
+            var t1 = localStorage.getItem("time1");
+            document.getElementById("t1").innerHTML = t1;
+            var t2 = localStorage.getItem("time2");
+            document.getElementById("t2").innerHTML = t2;
+            var t3 = localStorage.getItem("time3");
+            document.getElementById("t3").innerHTML = t3;
+
+            var input1 = localStorage.getItem("from");
+            document.getElementById("input1").innerHTML = input1;
+            var input2 = localStorage.getItem("to");
+            document.getElementById("input2").innerHTML = input2;
+
+            var tic = localStorage.getItem("ticket");
+            document.getElementById("tic").innerHTML = tic;
+
+            var tic2 = localStorage.getItem("ticket");
+            document.getElementById("tic2").innerHTML = tic2;
+
+            //navbar details city,date
+            var date = localStorage.getItem("tdate");
+            document.getElementById("date").innerHTML = date;
+            var input3 = localStorage.getItem("from");
+            document.getElementById("input3").innerHTML = input3;
+            var input4 = localStorage.getItem("to");
+            document.getElementById("input4").innerHTML = input4;
+        </script>
+
+        <br />
+        <div class="mid2" onclick="validate()">
+            <button><b>Proceed To Pay</b></button>
+        </div>
+    </div>
+</body>
+
+</html>

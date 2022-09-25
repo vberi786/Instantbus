@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+    <title>Ticket</title>
+
+    <style>
+        body {
+            font-family: 'Baloo 2', cursive;
+            background-color: rgb(252, 252, 252);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .cont {
+            width: 100%;
+            height: 600px;
+            padding-top: 10px;
+            box-sizing: border-box;
+        }
+
+        .ticket {
+            width: 100%;
+            height: 580px;
+            background-color: ivory;
+            margin-left: 0px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 0px solid rgb(8, 22, 37);
+        }
+
+        .head {
+            /* background-color: rgb(255, 232, 189); */
+            font-size: 22px;
+            padding-left: 30px;
+            font-weight: bolder;
+
+        }
+
+        .hr {
+            margin-top: 10px;
+            color: rgb(8, 22, 37);
+        }
+
+        .t-heading {
+            display: flex;
+            height: 60px;
+            background-color: rgb(8, 22, 37);
+            border-bottom: 2px solid orange;
+            padding-top: 15px;
+        }
+
+        .t-logo,
+        .t-id {
+            width: 40%;
+            padding-left: 40px;
+        }
+
+        .t-logo p {
+            color: orange;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .e-tick {
+            width: 30%;
+            font-size: 30px;
+            color: skyblue;
+            font-weight: bold;
+        }
+
+        .t-id {
+            width: 30%;
+            padding-top: 5px;
+            font-size: 20px;
+            font-weight: bold;
+            color: orange;
+        }
+
+        #tid {
+            font-size: 20px;
+            color: gray;
+        }
+
+        .ttname {
+            display: flex;
+        }
+
+        .tname {
+            width: 90%;
+            height: 60px;
+            margin-top: 10px;
+            font-size: 18px;
+            padding-left: 40px;
+            color: gray;
+        }
+
+        .pas-name {
+            font-size: 15px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .t-station {
+            display: flex;
+            margin-top: 10px;
+            height: 60px;
+            padding-left: 50px;
+            color: gray;
+            font-size: 18px;
+        }
+
+        .from,
+        .to {
+            width: 33.33%;
+            font-size: 18px;
+            color: gray;
+        }
+
+        .t-timing {
+            display: flex;
+            margin-top: 10px;
+            font-size: 18px;
+            color: gray;
+            height: 60px;
+            padding-left: 50px;
+        }
+
+        .t-busname {
+            width: 33.33%;
+        }
+
+        .t-date,
+        .t-time {
+            width: 33.33%;
+        }
+
+        .busname {
+            font-size: 15px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .t-seatdetail {
+            display: flex;
+            height: 60px;
+            margin-top: 10px;
+            font-size: 18px;
+            color: gray;
+            padding-left: 50px;
+        }
+
+        .t-seat,
+        .t-gate,
+        .t-board {
+            width: 33.33%;
+        }
+
+        .enjoy {
+            font-size: 40px;
+            font-weight: bold;
+            color: rgb(8, 22, 37);
+            margin-left: 20%;
+            margin-top: 10px;
+        }
+
+        button {
+            width: 150px;
+            background-color: rgb(8, 22, 37);
+            color: orange;
+            margin-left: 580px;
+            font-size: 18px;
+            padding: 10px 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            border: none;
+            outline: none;
+            transition: .8s;
+        }
+
+        button:hover{
+            background-color: orange;
+            color: rgb(8, 22, 37);
+        }
+    </style>
+
+
+<script type="text/javascript">
+    function printSection(el) {
+        var getFullContent = document.body.innerHTML;
+        var printsection = document.getElementById(el).innerHTML;
+        document.body.innerHTML = printsection;
+        window.print();
+        document.body.innerHTML = getFullContent;
+    }
+</script>
+
+</head>
+
+<body>
+    <div class="cont" id="conti">
+        <div class="ticket">
+
+            <div class="t-heading">
+                <div class="t-logo">
+                    <p>InstantBus</p>
+                </div>
+                <div class="e-tick">
+                    <p>e-Ticket</p>
+                </div>
+                <div class="t-id">
+                    <p>#Ticket : <span id="tid"> &nbsp; QB20193465</span> </p>
+                </div>
+            </div>
+
+            <p class="head" class="hr">Passanger Details</p>
+            <div class="ttname">
+                <div class="tname">
+                    <p> Name</p>
+                    <p class="pas-name" id="fname">John Doe</p>
+                </div>
+
+                <div class="tname">
+                    <p>Age</p>
+                    <p class="pas-name" id="age">25</p>
+                </div>
+
+                <div class="tname">
+                    <p>Gender</p>
+                    <p class="pas-name" id="gender">Male</p>
+                </div>
+
+                <div class="tname">
+                    <p>Email I'D</p>
+                    <p class="pas-name" id="email">vasu786beri@gmail.com</p>
+                </div>
+
+                <div class="tname">
+                    <p>Mobile No.</p>
+                    <p class="pas-name" id="mobile1">7888825893</p>
+                </div>
+            </div>
+
+            <hr class="hr">
+
+            <p class="head">Bus & Seat Details</p>
+            <div class="t-station">
+                <div class="t-busname">
+                    <p>Bus</p>
+                    <p class="busname" id="bname">PRCTC</p>
+                </div>
+
+                <div class="t-busname">
+                    <p>Class Of Service</p>
+                    <p class="busname" id="btype">Sleeper</p>
+                </div>
+
+                <div class="t-seat">
+                    <p>Seat</p>
+                    <p class="busname">55</p>
+                </div>
+
+                <div class="t-gate">
+                    <p>Gate</p>
+                    <p class="busname">12</p>
+                </div>
+
+            </div>
+
+            <hr class="hr">
+
+            <p class="head">Place & Date Details</p>
+            <div class="t-timing">
+
+                <div class="from">
+                    <p>From</p>
+                    <p class="busname" id="from">Jalandhar</p>
+                </div>
+
+                <div class="to">
+                    <p>To</p>
+                    <p class="busname" id="to">Amritsar</p>
+                </div>
+
+                <div class="t-date">
+                    <p>Date</p>
+                    <p class="busname" id="tdate">25 March</p>
+                </div>
+
+                <div class="t-time">
+                    <p>Departure Time</p>
+                    <p class="busname" id="time1">21:00</p>
+                </div>
+
+                <div class="t-board">
+                    <p>Board Till</p>
+                    <p class="busname" id="time3">20:40</p>
+                </div>
+
+            </div>
+
+            <hr class="hr">
+
+            <p class="head">Booking Details</p>
+            <div class="t-seatdetail">
+                <div class="t-seat">
+                    <p>PNR Number</p>
+                    <p class="busname">G103454</p>
+                </div>
+
+                <div class="t-gate">
+                    <p>Total Fare</p>
+                    <p class="busname" id="ticket">₹ 290 /-</p>
+                </div>
+
+                <div class="t-seat">
+                    <p>Booking Status</p>
+                    <p class="busname">Confirmed</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button onclick="printSection('conti')">Print Invoice</button>
+
+    <script>
+        var fname = localStorage.getItem("fname");
+        fname = fname.charAt(0).toUpperCase() + fname.slice(1); //user enter small letter but this will changes to Capitalize first letter.
+        document.getElementById("fname").innerHTML = fname;
+
+        var age = localStorage.getItem("age");
+        document.getElementById("age").innerHTML = age;
+
+        var gender = localStorage.getItem("gender");
+        document.getElementById("gender").innerHTML = gender;
+
+        var email = localStorage.getItem("email");
+        document.getElementById("email").innerHTML = email;
+
+        var mobile1 = localStorage.getItem("mobile1");
+        document.getElementById("mobile1").innerHTML = mobile1;
+
+        var bname = localStorage.getItem("bname");
+        document.getElementById("bname").innerHTML = bname;
+
+        var btype = localStorage.getItem("btype");
+        document.getElementById("btype").innerHTML = btype;
+
+        var from = localStorage.getItem("from");
+        document.getElementById("from").innerHTML = from;
+
+        var to = localStorage.getItem("to");
+        document.getElementById("to").innerHTML = to;
+
+        var tdate = localStorage.getItem("tdate");
+        document.getElementById("tdate").innerHTML = tdate;
+
+        var time1 = localStorage.getItem("time1");
+        document.getElementById("time1").innerHTML = time1;
+
+        var time3 = localStorage.getItem("time3");
+        document.getElementById("time3").innerHTML = time3;
+
+        var ticket = localStorage.getItem("ticket");
+        document.getElementById("ticket").innerHTML = ticket;
+    </script>
+
+</body>
+
+</html>
+        
+
+                
+
+                

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+    <script>
+        function validate() {
+            var nm = document.getElementById("nm").value;
+            var cd = document.getElementById("cd").value;
+            var cvv = document.getElementById("cvv").value;
+
+            if (nm.length == 0) {
+                alert("Enter Name On Card");
+                return false;
+            }
+
+            else if (cd.length == 0) {
+                alert("Enter Card Number");
+                return false;
+            }
+
+            else if (cvv.length == 0) {
+                alert("Enter CVV");
+                return false;
+            }
+
+            else if (cd.length < 16 || cd.length > 16) {
+                alert("Enter Valid Card Number");
+                return false;
+            }
+
+            else if (cvv.length < 3 || cvv.length > 3) {
+                alert("Enter Valid CVV");
+                return false;
+            }
+
+            else {
+                window.open("success.html");
+            }
+
+        }
+    </script>
+
+
+    <style>
+        @media(max-width:375px) {
+            html {
+                font-size: 20%;
+            }
+        }
+
+        @media(max-width:426px) {
+            html {
+                font-size: 21%;
+            }
+        }
+
+        @media(max-width:541px) {
+            html {
+                font-size: 26%;
+            }
+        }
+
+        @media(max-width:769px) {
+            html {
+                font-size: 36%;
+            }
+        }
+
+        @media(max-width:1025px) {
+            html {
+                font-size: 48%;
+            }
+        }
+
+        @media(max-width:1355px) {
+            html {
+                font-size: 62.5%;
+            }
+        }
+
+        @media(max-width:1441px) {
+            html {
+                font-size: 65%;
+            }
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+
+        body {
+            font-family: 'Baloo 2', cursive;
+            color: black;
+            background-color: white;
+        }
+
+        .credit {
+            width: 100%;
+            height: 37rem;
+            box-sizing: border-box;
+        }
+
+        .credit-head {
+            width: 100%;
+            display: flex;
+        }
+
+        .credit p {
+            box-sizing: border-box;
+            font-size: 2.5rem;
+            margin-left: 4rem;
+            margin-top: 3.5rem;
+            width: 60%;
+        }
+
+        .credit-logo {
+            width: 40%;
+        }
+
+        .credit-logo img {
+            height: 10rem;
+            /* border-radius: 24px; */
+            background-color: white;
+        }
+
+        .credit-det input {
+            width: 50%;
+            margin-top: 1.5rem;
+            background-color: white;
+            border: .1rem solid black;
+            border-radius: 12px;
+            padding: .2rem 2rem;
+            font-size: 1.6rem;
+        }
+
+        .credit-det input:focus {
+            background-color: rgb(8, 22, 33);
+            color: white;
+        }
+
+        .credit-det input::placeholder {
+            color: gray;
+            font-size: 1.8rem;
+        }
+
+
+        .credit-det label {
+            width: 35%;
+            font-weight: bold;
+            font-size: 2rem;
+            margin-left: 5rem;
+            margin-top: 3rem;
+        }
+
+        #month {
+            color: black;
+            background-color: white;
+            font-size: 1.8rem;
+            margin-top: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid black;
+            padding: 0rem 1rem;
+        }
+
+        #month:focus,
+        #year:focus {
+            background-color: rgb(8, 22, 33);
+            color: white;
+        }
+
+        #year {
+            color: black;
+            background-color: white;
+            border-radius: 12px;
+            font-size: 1.8rem;
+            margin-left: 2rem;
+            margin-top: 1.5rem;
+            padding: 0rem 1rem;
+            border: 1px solid black;
+        }
+
+        .credit button {
+            display: block;
+            width: 80%;
+            height: 4rem;
+            outline: none;
+            border: none;
+            margin-left: 7rem;
+            margin-top: 5rem;
+            color: white;
+            font-weight: 400;
+            font-size: 2rem;
+            border-radius: 24px;
+            background-color: rgb(8, 22, 33);
+            transition: .3s;
+        }
+
+        .credit button:hover {
+            background-color: orange;
+            color: rgb(8, 22, 33);
+        }
+    </style>
+    <title>Credit</title>
+</head>
+
+<body>
+    <div class="credit" id="credit-box">
+        <div class="credit-head">
+            <p><b>Credit Card Details</b></p>
+
+            <div class="credit-logo">
+                <img src="https://cdn.dribbble.com/users/172469/screenshots/14675787/media/45fb06bdf05226d49be086b3dd4a960a.png?compress=1&resize=400x300"
+                    alt="">
+            </div>
+        </div>
+
+        <form class="credit-det" action="#">
+
+            <label>Name :</label>
+            <input type="text" placeholder="Name On Card*" id="nm">
+
+            <label>Card Number :</label>
+            <input type="text" placeholder="Card Number*" id="cd">
+
+            <label>Valid up to :</label>
+            <select id="month">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+            </select>
+
+            <select id="year">
+                <option>2021</option>
+                <option>2022</option>
+                <option>2023</option>
+                <option>2024</option>
+                <option>2025</option>
+                <option>2026</option>
+                <option>2027</option>
+                <option>2028</option>
+                <option>2029</option>
+                <option>2030</option>
+                <option>2031</option>
+                <option>2032</option>
+            </select> <br>
+
+            <label>CVV</label>
+            <input type="password" placeholder="CVV" id="cvv">
+
+            <button onclick="validate()"><b>Pay ₹</b></button>
+        </form>
+    </div>
+
+</body>
+
+</html>

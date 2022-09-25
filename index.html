@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <!-- For Disable past date -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/datalist-css/dist/datalist-css.min.js"></script>
+
+
+    <title>InstantBus</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            box-sizing: border-box;
+            font-family: "Baloo 2", cursive;
+        }
+
+        header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://images.unsplash.com/photo-1616832880699-8541b04005ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YW1lcmljYW4lMjByb2FkfGVufDB8fDB8fA%3D%3D&w=1000&q=80);
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .main ul {
+            float: right;
+            color: orange;
+            list-style-type: none;
+            margin-top: 25px;
+        }
+
+        .main ul li {
+            display: inline-block;
+        }
+
+        .main ul li a {
+            text-decoration: none;
+            color: orange;
+            padding: 5px 20px;
+            border: 3px solid transparent;
+            transition: 0.6s ease;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .main ul li a:hover {
+            border-bottom: 3px solid orange;
+            color: orange;
+            text-decoration: none;
+        }
+
+        .main ul li.active a {
+            border-bottom: 3px solid orange;
+        }
+
+        .logo p {
+            float: left;
+            margin-top: 20px;
+            color: orange;
+            font-size: 35px;
+            font-weight: bold;
+            text-shadow: 1px 1px 10px orange;
+            cursor: pointer;
+        }
+
+        .main {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .quote {
+            width: 800px;
+            position: relative;
+            left: 250px;
+            top: 220px;
+        }
+
+        .quote p {
+            font-size: 35px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .search {
+            width: 90%;
+            margin-left: 60px;
+            margin-top: 250px;
+            height: 80px;
+            background-color: white;
+            border-radius: 5px;
+            display: flex;
+            padding: 12px 15px;
+        }
+
+        .from {
+            width: 25%;
+        }
+
+        .from p {
+            font-size: 14px;
+            color: gray;
+        }
+
+        .from input {
+            width: 90%;
+            font-size: 17px;
+            margin-top: 7px;
+            border: none;
+            border-bottom: 1px solid gray;
+            padding: 2px 5px;
+        }
+
+        .from input:focus {
+            outline: none;
+            border-bottom: 2px solid orange;
+        }
+
+        .from button {
+            width: 180px;
+            height: 40px;
+            border-radius: 5px;
+            background-color: orange;
+            color: rgb(55, 55, 55);
+            font-size: 16px;
+            font-weight: bold;
+            outline: none;
+            border: none;
+            margin-left: 80px;
+            margin-top: 9px;
+            transition: .7s;
+        }
+
+        .from button:hover {
+            box-shadow: 1px 1px 10px gray;
+            color: orange;
+            background-color: rgb(55, 55, 55);
+            cursor: pointer;
+        }
+
+        .ads {
+            width: 100%;
+            height: 450px;
+            background-color: rgb(238, 238, 238);
+        }
+
+        .ad-head {
+            padding-top: 25px;
+            height: 100px;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .ad-box {
+            height: 350px;
+            display: flex;
+            padding-top: 25px;
+        }
+
+        .ad1 {
+            width: 300px;
+            height: 250px;
+            border-radius: 10px;
+            background-color: rgb(252, 116, 62);
+            margin-left: 120px;
+            transition: 0.5s;
+        }
+
+        .ad1:hover {
+            box-shadow: 1px 1px 20px black;
+        }
+
+        .ad1-image {
+            height: 150px;
+            border-radius: 10px;
+            background-color: rgb(253, 193, 193);
+        }
+
+        .ad1-image img {
+            width: 300px;
+            height: 150px;
+            border-radius: 10px;
+        }
+
+        .ad1-offer {
+            font-size: 20px;
+            color: rgb(34, 34, 34);
+            padding-left: 20px;
+            padding-top: 15px;
+        }
+
+        .ad1-offer span {
+            font-weight: bolder;
+            color: black;
+        }
+
+        .services {
+            width: 100%;
+            height: 450px;
+            background-color: ivory;
+        }
+
+        .ser-head {
+            height: 80px;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            padding-top: 25px;
+        }
+
+        .ser-box {
+            height: 370px;
+            display: flex;
+            padding-top: 25px;
+        }
+
+        .ser1 {
+            width: 250px;
+            height: 300px;
+            border-radius: 10px;
+            transition: 0.5s;
+            margin-left: 70px;
+            background-color: rgb(236, 236, 236);
+        }
+
+        .ser1:hover {
+            box-shadow: 1px 1px 15px black;
+        }
+
+        .ser1-image {
+            height: 200px;
+            border-radius: 10px;
+            background-color: rgb(253, 193, 193);
+        }
+
+        .ser1-image img {
+            width: 250px;
+            height: 200px;
+            border-radius: 10px;
+        }
+
+        .ser1-detail {
+            font-size: 20px;
+            color: rgb(34, 34, 34);
+            padding-left: 20px;
+            padding-top: 15px;
+            font-weight: bold;
+        }
+
+        .ser1-detail span {
+            font-weight: bolder;
+            color: black;
+        }
+
+        .route {
+            width: 100%;
+            height: 550px;
+            background-color: ivory;
+        }
+
+        .route-head {
+            height: 80px;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            padding-top: 25px;
+        }
+
+        .route-box {
+            display: flex;
+            height: 400px;
+            padding-top: 25px;
+        }
+
+        .route1 {
+            width: 300px;
+            height: 380px;
+            background-color: rgb(238, 238, 238);
+            border-radius: 10px;
+            margin-left: 30px;
+            transition: 0.5s;
+        }
+
+        .route1:hover {
+            box-shadow: 1px 1px 15px black;
+        }
+
+        .route-image {
+            width: 300px;
+            height: 180px;
+            display: flex;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .image1 img {
+            width: 150px;
+            height: 180px;
+        }
+
+        .image1 span {
+            color: white;
+            font-weight: bold;
+            position: relative;
+            top: -35px;
+            left: 5px;
+        }
+
+        .image2 img {
+            width: 150px;
+            height: 180px;
+        }
+
+        .image2 span {
+            color: white;
+            font-weight: bold;
+            position: relative;
+            top: -35px;
+            left: 8px;
+        }
+
+        .route-bus {
+            width: 300px;
+            height: 70px;
+            display: flex;
+            font-weight: bold;
+            font-size: 19px;
+            line-height: 22px;
+            margin-top: 20px;
+        }
+
+        .bus {
+            width: 150px;
+            height: 70px;
+            text-align: center;
+        }
+
+        .bus span,
+        .opr span {
+            font-size: 17px;
+        }
+
+        .opr {
+            width: 150px;
+            height: 70px;
+            text-align: center;
+        }
+
+        .route-price {
+            text-align: center;
+            font-size: 19px;
+        }
+
+        .route-price span {
+            font-weight: bold;
+            color: rgb(252, 116, 62);
+        }
+
+        .book button {
+            height: 40px;
+            font-family: "Baloo 2", cursive;
+            background-color: rgb(146, 253, 38);
+            border: none;
+            outline: none;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 7px 10px;
+            border-radius: 10px;
+            margin-left: 100px;
+            margin-top: 10px;
+            transition: 0.5s;
+        }
+
+        .book button:hover {
+            box-shadow: 1px 1px 10px green;
+            cursor: pointer;
+        }
+
+        .footer {
+            display: flex;
+            width: 100%;
+            height: 300px;
+            background-color: rgb(8, 22, 37);
+        }
+
+        .left {
+            width: 70%;
+            height: 300px;
+            display: flex;
+            padding: 0px 50px;
+            font-size: 17px;
+        }
+
+        .right {
+            display: flex;
+            width: 30%;
+            font-size: 15px;
+        }
+
+        .f1 {
+            margin: 30px 30px;
+            width: 150px;
+            height: 250px;
+        }
+
+        .f1 ul {
+            list-style: none;
+        }
+
+        .f1 ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .f1 ul li a:hover {
+            color: rgb(99, 205, 247);
+        }
+
+        .f1 p {
+            font-size: 18px;
+            color: orange;
+            font-weight: bold;
+            line-height: 30px;
+        }
+
+        .f2 {
+            margin: 30px 20px;
+            width: 400px;
+            height: 250px;
+            color: white;
+            line-height: 25px;
+            font-size: 16px;
+        }
+
+        .f2 span {
+            font-size: 30px;
+            text-shadow: 1px 1px 3px orange;
+            color: orange;
+            font-weight: bold;
+        }
+
+        .copy {
+            width: 100%;
+            border-top: 1px solid grey;
+            font-size: 17px;
+            color: orange;
+            background-color: rgb(8, 22, 37);
+            text-align: center;
+            padding: 10px 0px;
+        }
+
+        .copy span {
+            font-weight: bold;
+        }
+
+        datalist option {
+            background-color: ivory;
+            font-size: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="main">
+            <div class="logo">
+                <p>InstantBus</p>
+            </div>
+            <ul>
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#routes">Buses</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="quote">
+            <p>
+                <i class="fa fa-bus" aria-hidden="true"></i> &nbsp; Search &nbsp; •
+                &nbsp;Book &nbsp;• &nbsp;Go
+            </p>
+        </div>
+
+        <div class="search">
+            <div class="from">
+                <p>From</p>
+                <input type="text" placeholder="Leaving From" list="cityname1" id="input1" action="buses.html"
+                    method="GET" />
+
+                <datalist id="cityname1">
+                    <option value="Jalandhar">Jalandhar</option>
+                    <option value="Phagwara">Phagwara</option>
+                    <option value="Amirtsar">Amirtsar</option>
+                    <option value="Ludhiana">Ludhiana</option>
+                    <option value="Nawashar">Nawashar</option>
+                    <option value="Phatankot">Phatankot</option>
+                    <option value="Chandigarh">Chandigarh</option>
+                    <option value="Sangrur">Sangrur</option>
+                    <option value="Patiala">Patiala</option>
+                    <option value="Fatehgar Sahib">Fatehgar Sahib</option>
+                    <option value="Moose">Moose</option>
+                    <option value="Hoshiarpur">Hoshiarpur</option>
+                    <option value="Banaga">Banga</option>
+                </datalist>
+            </div>
+
+            <div class="from">
+                <p>To</p>
+                <input type="text" placeholder="Going To" list="cityname2" id="input2" />
+
+                <datalist id="cityname2">
+                    <option value="Jalandhar">Jalandhar</option>
+                    <option value="Phagwara">Phagwara</option>
+                    <option value="Amirtsar">Amirtsar</option>
+                    <option value="Ludhiana">Ludhiana</option>
+                    <option value="Nawashar">Nawashar</option>
+                    <option value="Phatankot">Phatankot</option>
+                    <option value="Chandigarh">Chandigarh</option>
+                    <option value="Sangrur">Sangrur</option>
+                    <option value="Patiala">Patiala</option>
+                    <option value="Fatehgar Sahib">Fatehgar Sahib</option>
+                    <option value="Moose">Moose</option>
+                    <option value="Hoshiarpur">Hoshiarpur</option>
+                    <option value="Banaga">Banga</option>
+                </datalist>
+            </div>
+
+            <div class="from">
+                <p>Date</p>
+                <input type="date" id="txtDate" />
+            </div>
+
+            <!-- script for date -->
+            <script>
+                $(function () {
+                    var dtToday = new Date();
+                    var month = dtToday.getMonth() + 1;
+                    var day = dtToday.getDate();
+                    var year = dtToday.getFullYear();
+                    if (month < 10) month = "0" + month.toString();
+                    if (day < 10) day = "0" + day.toString();
+                    var minDate = year + "-" + month + "-" + day;
+                    $("#txtDate").attr("min", minDate);
+                });
+            </script>
+
+            <div class="from">
+                <button id="searchbtn" onclick="myFunction()">Search</button>
+            </div>
+
+            <script>
+                function myFunction() {
+                    var source = document.getElementById("input1").value;
+                    var destination = document.getElementById("input2").value;
+                    var dat = document.getElementById("txtDate").value;
+
+                    localStorage.setItem("from", source);
+                    localStorage.setItem("to", destination);
+                    localStorage.setItem("tdate", dat);
+
+                };
+            </script>
+
+            <!-- script for search button -->
+
+            <script>
+                $(document).ready(function () {
+                    $("#searchbtn").click(function () {
+                        if ($("#input1").val() == "" && $("#input2").val() == "") {
+                            alert("Please Enter Source and Destination");
+                        }
+
+                        else if ($("#input1").val() == "") {
+                            alert("Please Enter Source");
+                        }
+
+                        else if ($("#input2").val() == "") {
+                            alert("Please Enter Destination");
+                        }
+
+                        else if ($('#txtDate').val() == "") {
+                            alert("Please Enter Date");
+                        }
+
+                        else if
+                            ($("#input1").val() == $("#input2").val()) {
+                            alert("Source and Destination Can't be not same");
+                        }
+                        // 1
+                        else if (
+                            $("#input1").val() == "Jalandhar" &&
+                            ($("#input2").val() ==
+                              
+                                "Phagwara" ||
+                                "Amritsar" ||
+                                "Ludhiana" ||
+                                "Nawashar" ||
+                                "Phatankot" ||
+                                "Chandigarh" ||
+                                "Sangrur" ||
+                                "Pataiala" ||
+                                "Fatehgar Sahib" ||
+                                "Mansa" ||
+                                "Hoshiarpur" ||
+                                "Banga")
+                        ) {
+                            window.open("./bus1.html");
+                        }
+                        // 2
+                        else if (
+                            $("#input1").val() == "Ludhiana" &&
+                            ($("#input2").val() == 
+                                
+                                "Phagwara" ||
+                                "Amritsar" ||
+                                "Jalandhar" ||
+                                "Nawashar" ||
+                                "Phatankot" ||
+                                "Chandigarh" ||
+                                "Sangrur" ||
+                                "Pataiala" ||
+                                "Fatehgar Sahib" ||
+                                "Mansa" ||
+                                "Hoshiarpur" ||
+                                "Banga")
+                        ) {
+                            window.open("./bus2.html");
+                        }
+                        // 3
+                        else if (
+                            $("#input1").val() == "Amritsar" &&
+                            ($("#input2").val() ==
+                                "Phagwara" ||
+                                "Ludhiana" ||
+                                "Jalandhar" ||
+                                "Nawashar" ||
+                                "Phatankot" ||
+                                "Chandigarh" ||
+                                "Sangrur" ||
+                                "Pataiala" ||
+                                "Fatehgar Sahib" ||
+                                "Mansa" ||
+                                "Hoshiarpur" ||
+                                "Banga")
+                        ) {
+                            window.open("./bus3.html");
+                        }
+                        // 4
+                        else if (
+                            $("#input1").val() == "Sangrur" &&
+                            ($("#input2").val() == 
+                            "Phagwara" ||
+                                "Ludhiana" ||
+                                "Jalandhar" ||
+                                "Nawashar" ||
+                                "Phatankot" ||
+                                "Chandigarh" ||
+                                "Amritsar" ||
+                                "Pataiala" ||
+                                "Fatehgar Sahib" ||
+                                "Mansa" ||
+                                "Hoshiarpur" ||
+                                "Banga" )
+                        ) {
+                            window.open("./bus4.html");
+                        }
+                        // 5
+                        else if (
+                            $("#input1").val() == "Hoshiarpur" &&
+                            ($("#input2").val() == "Phagwara" ||
+                                "Ludhiana" ||
+                                "Jalandhar" ||
+                                "Nawashar" ||
+                                "Phatankot" ||
+                                "Chandigarh" ||
+                                "Amritsar" ||
+                                "Pataiala" ||
+                                "Fatehgar Sahib" ||
+                                "Mansa" ||
+                                "Sangrur" ||
+                                "Banga")
+                        ) {
+                            window.open("./bus5.html");
+                        }
+                        // 6
+                        else if (
+                            $("#input1").val() == "Banga" &&
+                            ($("#input2").val() == "Ludhiana" ||
+                                "Jalandhar" ||
+                                "Nawashar" ||
+                                "Phatankot" ||
+                                "Chandigarh" ||
+                                "Amritsar" ||
+                                "Pataiala" ||
+                                "Fatehgar Sahib" ||
+                                "Mansa" ||
+                                "Sangrur" ||
+                                "Hoshairpur")
+                        ) {
+                            window.open("./bus6.html");
+                        }
+                        //7
+                        else if (
+                            $("#input1").val() == "Patiala" &&
+                            ($("#input2").val() == "Ludhiana" ||
+                                "Jalandhar" ||
+                                "Nawashar" ||
+                                "Phatankot" ||
+                                "Chandigarh" ||
+                                "Amritsar" ||
+                                "Banga" ||
+                                "Fatehgar Sahib" ||
+                                "Mansa" ||
+                                "Sangrur" ||
+                                "Hoshairpur")
+                        ) {
+                            window.open("./bus7.html");
+                        }
+                        //8
+                        else if (
+                            $("#input1").val() == "Chandigarh" &&
+                            ($("#input2").val() == "Ludhiana" ||
+                                "Jalandhar" ||
+                                "Nawashar" ||
+                                "Phatankot" ||
+                                "Patiala" ||
+                                "Amritsar" ||
+                                "Banga" ||
+                                "Fatehgar Sahib" ||
+                                "Mansa" ||
+                                "Sangrur" ||
+                                "Hoshairpur")
+                        ) {
+                            window.open("./bus8.html");
+                        }
+                        //9
+                        else if (
+                            $("#input1").val() == "Phatankot" &&
+                            ($("#input2").val() == "Ludhiana" ||
+                                "Jalandhar" ||
+                                "Nawashar" ||
+                                "Chandigarh" ||
+                                "Patiala" ||
+                                "Amritsar" ||
+                                "Banga" ||
+                                "Fatehgar Sahib" ||
+                                "Mansa" ||
+                                "Sangrur" ||
+                                "Hoshairpur")
+                        ) {
+                            window.open("./bus9.html");
+                        }
+                        //10
+                        else if (
+                            $("#input1").val() == "Mansa" &&
+                            ($("#input2").val() ==  "Ludhiana" ||
+                                "Jalandhar" ||
+                                "Nawashar" ||
+                                "Chandigarh" ||
+                                "Patiala" ||
+                                "Amritsar" ||
+                                "Banga" ||
+                                "Fatehgar Sahib" ||
+                                "Phatankot" ||
+                                "Sangrur" ||
+                                "Hoshairpur"
+                                )
+                        ) {
+                            window.open("./bus10.html");
+                        }
+
+                        // 11
+                        else if (
+                            $("#input1").val() == "Mehsana" &&
+                            ($("#input2").val() == "Surat" ||
+                                "Vadodara" ||
+                                "Ahmedabad" ||
+                                "Gandhinagar" ||
+                                "Diu" ||
+                                "Junagadh" ||
+                                "Rajkot" ||
+                                "Jamnagar" ||
+                                "Bhavnagar" ||
+                                "Amreli" ||
+                                //   "Mehsana" ||
+                                "kutch" ||
+                                "Porbandar")
+                        ) {
+                            window.open("./bus11.html");
+                        }
+
+                        // 12
+                        else if (
+                            $("#input1").val() == "Kutch" &&
+                            ($("#input2").val() == "Surat" ||
+                                "Vadodara" ||
+                                "Ahmedabad" ||
+                                "Gandhinagar" ||
+                                "Diu" ||
+                                "Junagadh" ||
+                                "Rajkot" ||
+                                "Jamnagar" ||
+                                "Bhavnagar" ||
+                                "Amreli" ||
+                                "Mehsana" ||
+                                //   "kutch" ||
+                                "Porbandar")
+                        ) {
+                            window.open("./bus12.html");
+                        }
+                        //  13
+                        else if (
+                            $("#input1").val() == "Porbandar" &&
+                            ($("#input2").val() == "Surat" ||
+                                "Vadodara" ||
+                                "Ahmedabad" ||
+                                "Gandhinagar" ||
+                                "Diu" ||
+                                "Junagadh" ||
+                                "Rajkot" ||
+                                "Jamnagar" ||
+                                "Bhavnagar" ||
+                                "Amreli" ||
+                                "Mehsana" ||
+                                "kutch")
+                            //   1"Porbandar"
+                        ) {
+                            window.open("./bus13.html");
+                        }
+                    });
+                });
+            </script>
+        </div>
+    </header>
+
+    <div class="route" id="routes">
+        <div class="route-head">
+            <p>Popular Routes</p>
+        </div>
+
+        <div class="route-box">
+            <div class="route1">
+                <div class="route-image">
+                    <div class="image1">
+                        <img src="https://images.theindia.co.in/place/banner_sidi-saiyyad-jali_902.JPG" alt="" />
+                        <span>Jalandhar</span>
+                    </div>
+
+                    <div class="image2">
+                        <img src="https://i.pinimg.com/236x/f1/54/a6/f154a6d3f365a53dbbafe3c81c81bf29--in-india-bridges.jpg"
+                            alt="" />
+                        <span>Chandigarh</span>
+                    </div>
+                </div>
+
+                <div class="route-bus">
+                    <div class="bus">
+                        <p>23 <br /><span>Buses</span></p>
+                    </div>
+
+                    <div class="opr">
+                        <p>12 <br /><span>Operators</span></p>
+                    </div>
+                </div>
+
+                <div class="route-price">
+                    <p>Price Starts From <span>₹299</span></p>
+                </div>
+
+                <div class="book">
+                    <a><button onclick="route1()">Book Now</button></a>
+                </div>
+
+                <script>
+                    function route1() {
+
+
+                        var source = "Jalandhar";
+                        var destination = "Chandigarh";
+
+                        const d = new Date();
+                        var dat = d.toLocaleDateString('en-CA');
+
+                        localStorage.setItem("from", source);
+                        localStorage.setItem("to", destination);
+                        localStorage.setItem("tdate", dat);
+
+                        window.open("./bus3.html");
+
+                    };
+                </script>
+            </div>
+
+            <div class="route1">
+                <div class="route-image">
+                    <div class="image1">
+                        <img src="https://pbs.twimg.com/media/EZ5-pzSXsAIQnVH.jpg" alt="" />
+                        <span>Jalandhar</span>
+                    </div>
+
+                    <div class="image2">
+                        <img src="https://i.pinimg.com/564x/6b/0a/b9/6b0ab98ff82350ceac52ea10e26fece1.jpg" alt="" />
+                        <span>Amritsar</span>
+                    </div>
+                </div>
+
+                <div class="route-bus">
+                    <div class="bus">
+                        <p>15 <br /><span>Buses</span></p>
+                    </div>
+
+                    <div class="opr">
+                        <p>8 <br /><span>Operators</span></p>
+                    </div>
+                </div>
+
+                <div class="route-price">
+                    <p>Price Starts From <span>₹199</span></p>
+                </div>
+
+                <div class="book">
+                    <a><button onclick="route2()">Book Now</button></a>
+                </div>
+
+                <script>
+                    function route2() {
+
+
+                        var source = "Jalandhar";
+                        var destination = "Amritsar";
+
+                        const d = new Date();
+                        var dat = d.toLocaleDateString('en-CA');
+
+                        localStorage.setItem("from", source);
+                        localStorage.setItem("to", destination);
+                        localStorage.setItem("tdate", dat);
+
+                        window.open("./bus4.html");
+
+                    };
+                </script>
+
+            </div>
+
+            <div class="route1">
+                <div class="route-image">
+                    <div class="image1">
+                        <img src="http://madhavbagh.com/wp-content/uploads/2018/11/palace-1.jpg" alt="" />
+                        <span>Jalandhar</span>
+                    </div>
+
+                    <div class="image2">
+                        <img src="https://wi.wallpapertip.com/wsimgs/153-1537420_hot-beach-ipad-wallpaper-download-iphone-wallpapers-diu.jpg"
+                            alt="" />
+                        <span>Pataiala</span>
+                    </div>
+                </div>
+
+                <div class="route-bus">
+                    <div class="bus">
+                        <p>10 <br /><span>Buses</span></p>
+                    </div>
+
+                    <div class="opr">
+                        <p>6 <br /><span>Operators</span></p>
+                    </div>
+                </div>
+
+                <div class="route-price">
+                    <p>Price Starts From <span>₹399</span></p>
+                </div>
+
+                <div class="book">
+                    <a><button onclick="route3()">Book Now</button></a>
+                </div>
+
+                <script>
+                    function route3() {
+
+                        var source = "Jalandhar";
+                        var destination = "Patiala";
+
+                        const d = new Date();
+                        var dat = d.toLocaleDateString('en-CA');
+
+                        localStorage.setItem("from", source);
+                        localStorage.setItem("to", destination);
+                        localStorage.setItem("tdate", dat);
+
+                        window.open("./bus2.html");
+
+                    };
+                </script>
+
+            </div>
+
+            <div class="route1">
+                <div class="route-image">
+                    <div class="image1">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkHH1GMx2mb9ai72bqSAVWlsAJKYY668dYJQ95MUJ1ZDfGy6-PY2G3R_--FdW2d9rbpeA&usqp=CAU   "
+                            alt="" />
+                        <span>Ludhiana</span>
+                    </div>
+
+                    <div class="image2">
+                        <img src="https://www.teahub.io/photos/full/25-257098_mosque-wallpapers-full-hd-dubai-masjid-wallpaper-hd.png"
+                            alt="" />
+                        <span>Fategarh Sahib</span>
+                    </div>
+                </div>
+
+                <div class="route-bus">
+                    <div class="bus">
+                        <p>35 <br /><span>Buses</span></p>
+                    </div>
+
+                    <div class="opr">
+                        <p>20 <br /><span>Operators</span></p>
+                    </div>
+                </div>
+
+                <div class="route-price">
+                    <p>Price Starts From <span>₹199</span></p>
+                </div>
+
+                <div class="book">
+                    <a><button onclick="route4()">Book Now</button></a>
+                </div>
+
+                <script>
+                    function route4() {
+
+                        var source = "Ludhiana";
+                        var destination = "Fategarh Sahib";
+
+                        const d = new Date();
+                        var dat = d.toLocaleDateString('en-CA');
+
+                        localStorage.setItem("from", source);
+                        localStorage.setItem("to", destination);
+                        localStorage.setItem("tdate", dat);
+
+                        window.open("./bus1.html");
+
+                    };
+                </script>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="ads" id="about">
+        <div class="ad-head">
+            <p>Best Deals On Bus Booking</p>
+        </div>
+
+        <div class="ad-box">
+            <div class="ad1">
+                <div class="ad1-image">
+                    <img src="https://www.ixigo.com/ixi-api/resize?h=530&w=1000&i=https://www.ixigo.com/offers/content/images/2020/09/busoffer@3x-1.png"
+                        alt="" />
+                </div>
+
+                <div class="ad1-offer">
+                    <p>
+                        Get <span> 5%</span> Instant Off By Using CODE :
+                        <span> BUS5</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="ad1">
+                <div class="ad1-image">
+                    <img src="https://hungamadeal.co.in/wp-content/uploads/2019/06/other-2.png" alt="" />
+                </div>
+
+                <div class="ad1-offer">
+                    <p>
+                        Get Flat <span>10% Off</span> Upto <span>₹500</span> On Buses Via
+                        CRED.
+                    </p>
+                </div>
+            </div>
+
+            <div class="ad1">
+                <div class="ad1-image">
+                    <img src="https://www.ixigo.com/ixi-api/resize?h=530&w=1000&i=https://www.ixigo.com/offers/content/images/2021/02/offer@3x-16.png"
+                        alt="" />
+                </div>
+
+                <div class="ad1-offer">
+                    <p>
+                        Enjoy <span>FREE</span> Cancellation On Bus Booking
+                        <span>@₹15</span> Only.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="services" id="services">
+        <div class="ser-head">
+            <p>We Promise To Deliver</p>
+        </div>
+
+        <div class="ser-box">
+            <div class="ser1">
+                <div class="ser1-image">
+                    <img src="https://thumbs.dreamstime.com/b/pocket-money-falling-cartoon-banknote-coin-vector-flat-gold-coins-heap-bank-currency-sign-dollars-cash-bundle-banking-finance-178617205.jpg"
+                        alt="" />
+                </div>
+
+                <div class="ser1-detail">
+                    <p>
+                        Great Price and <br />
+                        Great Value.
+                    </p>
+                </div>
+            </div>
+
+            <div class="ser1">
+                <div class="ser1-image">
+                    <img src="https://st.redbus.in/Images/safety/travel-safe-withred-bus.svg" alt="" />
+                </div>
+
+                <div class="ser1-detail">
+                    <p>Safe and Hygeinic Vehicles.</p>
+                </div>
+            </div>
+
+            <div class="ser1">
+                <div class="ser1-image">
+                    <img src="https://www.quiq-cdn.com/wp-content/uploads/2020/06/how-call-centers-are-becoming-text-centers-e1591713724628.png"
+                        alt="" />
+                </div>
+
+                <div class="ser1-detail">
+                    <p>24x7 Customer Support</p>
+                </div>
+            </div>
+
+            <div class="ser1">
+                <div class="ser1-image">
+                    <img src="https://www.busboss.com/hubfs/shutterstock_341516156.jpg" alt="" />
+                </div>
+
+                <div class="ser1-detail">
+                    <p>Live Track Your Journey</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer" id="contact">
+        <div class="left">
+            <div class="f1">
+                <p>ABOUT</p>
+
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+
+            <div class="f1">
+                <p>HELP</p>
+
+                <ul>
+                    <li><a href="#">Payment</a></li>
+                    <li><a href="#">Bookings</a></li>
+                    <li><a href="#">Refunds</a></li>
+                    <li><a href="#">Cancellation</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="f1">
+                <p>POLICY</p>
+
+                <ul>
+                    <li><a href="#">Return Policy</a></li>
+                    <li><a href="#">Terms Of Use</a></li>
+                    <li><a href="#">Security</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+
+            <div class="f1">
+                <p>SOCIAL</p>
+
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Youtube</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="f2">
+                <span> InstantBus </span> <br /><br />
+
+                InstantBus is the world's largest online bus ticket booking service
+                trusted by over 25 million happy customers globally. <br />
+                InstantBus offers bus ticket booking through its website,iOS and Android
+                mobile apps for all major routes.
+            </div>
+        </div>
+    </div>
+
+    <div class="copy">
+        <p>&copy; 2022 InstantBus All Rights Reserved by Vasu</p>
+    </div>
+</body>
+
+</html>

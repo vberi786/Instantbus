@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <title>Payment Detail</title>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            box-sizing: border-box;
+            font-family: "Baloo 2", cursive;
+            margin: 0px;
+            padding: 0px;
+            background-color: white;
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+
+        .main {
+            width: 100%;
+            height: 70px;
+            background-color: rgb(0, 11, 22);
+        }
+
+        .main ul {
+            float: right;
+            color: orange;
+            list-style-type: none;
+            margin-top: 20px;
+            margin-right: 50px;
+        }
+
+        .main ul li {
+            display: inline-block;
+        }
+
+        .main ul li a {
+            text-decoration: none;
+            color: orange;
+            padding: 5px 20px;
+            border: 3px solid transparent;
+            transition: 0.6s ease;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .main ul li a:hover {
+            border-bottom: 3px solid orange;
+            color: orange;
+            text-decoration: none;
+        }
+
+        .logo p {
+            float: left;
+            margin-top: 7px;
+            margin-left: 30px;
+            color: orange;
+            font-size: 35px;
+            font-weight: bold;
+            text-shadow: 1px 1px 5px orange;
+            cursor: pointer;
+        }
+
+        .mid {
+            width: 100%;
+            height: 550px;
+            background-color: white;
+            color: black;
+            display: flex;
+        }
+
+        .info1 {
+            height: 470px;
+            width: 600px;
+            font-size: 150%;
+            margin-left: 60px;
+            margin-top: 40px;
+            border: 1px solid rgb(8, 22, 33);
+            border-radius: 22px;
+            color: black;
+        }
+
+        .pay-box {
+            width: 100%;
+            color: black;
+        }
+
+        .pay-box p {
+            background-color: rgb(8, 22, 33);
+            padding-left: 130px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: orange;
+            font-size: 28px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .pay-box label {
+            margin-top: 50px;
+            margin-left: 10rem;
+            font-size: 2.3rem;
+        }
+
+        .pay-box select option {
+            border-radius: 24px;
+        }
+
+        #total{
+            font-weight: bolder;
+            color: orange;
+        }
+
+        #pay-method:focus {
+            background-color: rgb(8, 22, 33);
+            color: white;
+            outline: none;
+        }
+
+        #pay-method {
+            color: black;
+            background-color: white;
+            margin-left: 2rem;
+            padding: 0rem 1rem;
+            font-size: 2.1rem;
+            border-radius: 16px;
+            border-bottom: 1px solid rgb(8, 22, 33);
+        }
+
+        .info-pay {
+            width: 21.6rem;
+            font-size: 2rem;
+            box-sizing: border-box;
+        }
+
+        .info-pay button {
+            background-color: rgb(8, 22, 33);
+            color: orange;
+            border-radius: 1rem;
+            width: 30rem;
+            height: 4rem;
+            margin-top: 140px;
+            margin-left: 140px;
+            outline: none;
+            border: none;
+            font-size: 1.8rem;
+            font-weight: bold;
+            transition: .3s;
+            border-radius: 20px;
+        }
+
+        .info-pay button:hover {
+            background-color: orange;
+            color: rgb(8, 22, 33);
+        }
+
+
+        .info-box {
+            width: 54rem;
+            height: 40rem;
+            border: .1rem solid rgb(8, 22, 33);
+            margin-top: 6rem;
+            margin-left: 6rem;
+            border-radius: 2rem;
+        }
+
+        .info-box p {
+            display: block;
+            padding-left: 4rem;
+            padding-top: 3rem;
+            font-size: 2.8rem;
+            color: black;
+        }
+
+        .info-logo {
+            width: 100%;
+            display: flex;
+            margin-top:40px;
+            height: 6rem;
+            overflow: hidden;
+            background-color: rgb(8, 22, 33);
+            border-bottom-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+
+        .info-logo i {
+            font-size: 4rem;
+            margin-left: 4.3rem;
+            margin-top: 1rem;
+            color: grey;
+        }
+
+        .info-logo i:hover {
+            color: orange;
+        }
+
+        .info2 {
+            height: 470px;
+            width: 600px;
+            font-size: 150%;
+            margin-left: 60px;
+            margin-top: 40px;
+            border: 1px solid rgb(8, 22, 33);
+            border-radius: 20px;
+            color: black;
+        }
+
+        #pay-frame {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            border-radius: 20px;
+        }
+    </style>
+
+
+    <script>
+
+        function method() {
+
+            var x = document.getElementById("pay-method").selectedIndex;
+
+            if (x == "0") {
+                document.getElementById("pay-frame").src = "UPI.html";
+            }
+
+            else if (x == "1") {
+                document.getElementById("pay-frame").src = "Credit.html";
+            }
+
+            else if (x == "2") {
+                document.getElementById("pay-frame").src = "Debit.html";
+            }
+
+            else if (x == "3") {
+                document.getElementById("pay-frame").src = "Net.html";
+            }
+        }
+
+    </script>
+</head>
+
+
+<body>
+    <div class="main">
+        <div class="logo">
+            <p>InstantBus</p>
+        </div>
+        <ul>
+            <li class="active"><a href="quickbus.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Buses</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+    <br>
+    <div class="mid">
+        <div class="info1">
+            <div class="pay-box">
+                <p>Total Payment :&nbsp;  <span id="total">₹ 200.00</span></p>
+
+                <label>Payment Method :</label>
+
+                <select id="pay-method" required>
+                    <option value="upi">UPI</option>
+                    <option value="credit">Credit Card</option>
+                    <option value="debit">Debit Card</option>
+                    <option value="net">Net Banking</option>
+                </select>
+                <br>
+                <div class="info-pay">
+                    <button onclick="method()">Proceed To Pay</button>
+                </div>
+                <br>
+            </div>
+            <div class="info-logo">
+                <i class="fa fa-cc-visa" aria-hidden="true"></i>
+                <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+                <i class="fa fa-cc-mastercard" aria-hidden="true"></i>
+                <i class="fa fa-paypal" aria-hidden="true"></i>
+                <i class="fa fa-credit-card" aria-hidden="true"></i>
+                <i class="fa fa-bank" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="info2">
+            <iframe src="" frameborder=" 0" id="pay-frame"></iframe>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
